@@ -130,28 +130,25 @@ export default function TestimonialsSection() {
     <section className={`transition-colors duration-500 py-20 px-6 ${isDark ? 'bg-black' : 'bg-white'}`}>
       <div className="max-w-4xl mx-auto">
 
-        {/* Header */}
         <div className="text-center mb-12">
           <p className="text-xs font-black uppercase tracking-[0.3em] mb-2" style={{ color: themeYellow }}>
             Success Stories
           </p>
-          <h2 className={`text-3xl sm:text-5xl font-black tracking-tighter mb-4 uppercase ${isDark ? 'text-white' : 'text-zinc-900'}`}>
+          <h2 className={`text-3xl sm:text-5xl font-black tracking-tighter mb-4 uppercase ${isDark ? 'text-white' : 'text-black'}`}>
             Client Feedback
           </h2>
           <div className="w-12 h-1 bg-[#facc15] mx-auto rounded-full" />
         </div>
 
-        {/* Quote Icon */}
         <div className="text-center mb-8">
           <svg className="w-16 h-16 opacity-10 mx-auto" style={{ color: themeYellow }} fill="currentColor" viewBox="0 0 24 24">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
           </svg>
         </div>
 
-        {/* Slide Card */}
         <div
           className={`rounded-sm shadow-2xl p-8 sm:p-14 relative overflow-hidden transition-all duration-500 border ${
-            isDark ? 'bg-zinc-900 border-zinc-800' : 'bg-white border-zinc-100'
+            isDark ? 'bg-black border-yellow-500/20' : 'bg-white border-yellow-200'
           }`}
           style={{
             opacity: animating ? 0 : 1,
@@ -167,43 +164,33 @@ export default function TestimonialsSection() {
           </div>
 
           <p className={`text-lg sm:text-2xl font-medium leading-relaxed text-center mb-10 max-w-2xl mx-auto italic tracking-tight ${
-            isDark ? 'text-zinc-300' : 'text-zinc-700'
+            isDark ? 'text-gray-300' : 'text-gray-700'
           }`}>
             "{t.review}"
           </p>
 
           <div className="flex flex-col items-center gap-4">
-            <img 
-              src={t.photo} 
-              alt={t.name} 
-              className="w-20 h-20 rounded-full object-cover border-4 shadow-xl" 
-              style={{ borderColor: themeYellow }}
-            />
+            <img src={t.photo} alt={t.name} className="w-20 h-20 rounded-full object-cover border-4 shadow-xl" style={{ borderColor: themeYellow }} />
             <div className="text-center">
-              <p className={`text-base font-black uppercase tracking-widest ${isDark ? 'text-white' : 'text-zinc-900'}`}>
+              <p className={`text-base font-black uppercase tracking-widest ${isDark ? 'text-white' : 'text-black'}`}>
                 {t.name}
               </p>
               <p className="text-sm font-bold uppercase tracking-wide" style={{ color: themeYellow }}>
                 {t.role}
               </p>
-              <p className="text-[10px] text-zinc-500 font-black uppercase tracking-[0.2em] mt-1">
+              <p className="text-[10px] text-gray-500 font-black uppercase tracking-[0.2em] mt-1">
                 {t.company}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Controls */}
         <div className="flex flex-col items-center gap-8 mt-12">
           <div className="flex items-center gap-8">
-            <button 
-              onClick={prev} 
-              className={`w-12 h-12 flex items-center justify-center rounded-full border-2 transition-all duration-300 hover:scale-110 active:scale-95 ${
-                isDark 
-                ? 'border-zinc-800 text-white hover:bg-zinc-800' 
-                : 'border-zinc-200 text-zinc-900 hover:bg-zinc-100'
-              }`}
-            >
+
+            <button onClick={prev} className={`w-12 h-12 flex items-center justify-center rounded-full border-2 transition-all duration-300 hover:scale-110 active:scale-95 ${
+              isDark ? 'border-yellow-500 text-yellow-400 hover:bg-yellow-500/10' : 'border-yellow-400 text-yellow-600 hover:bg-yellow-100'
+            }`}>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
               </svg>
@@ -211,33 +198,30 @@ export default function TestimonialsSection() {
 
             <div className="flex items-center gap-3">
               {testimonials.map((_, i) => (
-                <button key={i} onClick={() => goTo(i, i > current ? "next" : "prev")} aria-label={`Go to ${i + 1}`}>
+                <button key={i} onClick={() => goTo(i, i > current ? "next" : "prev")}>
                   {i === current ? (
-                    <span className={`relative block w-14 h-2 rounded-full overflow-hidden ${isDark ? 'bg-zinc-800' : 'bg-zinc-100'}`}>
-                      <span className="absolute left-0 top-0 h-full bg-[#facc15] rounded-full" style={{ width: `${progress}%` }} />
+                    <span className={`relative block w-14 h-2 rounded-full overflow-hidden ${isDark ? 'bg-yellow-900/30' : 'bg-yellow-100'}`}>
+                      <span className="absolute left-0 top-0 h-full bg-[#facc15]" style={{ width: `${progress}%` }} />
                     </span>
                   ) : (
-                    <span className={`block w-4 h-2 rounded-full transition-all duration-300 ${isDark ? 'bg-zinc-800 hover:bg-zinc-700' : 'bg-zinc-200 hover:bg-zinc-300'}`} />
+                    <span className={`block w-4 h-2 rounded-full transition-all duration-300 ${
+                      isDark ? 'bg-yellow-900/40 hover:bg-yellow-700' : 'bg-yellow-200 hover:bg-yellow-400'
+                    }`} />
                   )}
                 </button>
               ))}
             </div>
 
-            <button 
-              onClick={next} 
-              className={`w-12 h-12 flex items-center justify-center rounded-full border-2 transition-all duration-300 hover:scale-110 active:scale-95 ${
-                isDark 
-                ? 'border-zinc-800 text-white hover:bg-zinc-800' 
-                : 'border-zinc-200 text-zinc-900 hover:bg-zinc-100'
-              }`}
-            >
+            <button onClick={next} className={`w-12 h-12 flex items-center justify-center rounded-full border-2 transition-all duration-300 hover:scale-110 active:scale-95 ${
+              isDark ? 'border-yellow-500 text-yellow-400 hover:bg-yellow-500/10' : 'border-yellow-400 text-yellow-600 hover:bg-yellow-100'
+            }`}>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
               </svg>
             </button>
           </div>
 
-          <p className="text-sm font-black tracking-[0.5em] opacity-30" style={{ color: isDark ? '#fff' : '#000' }}>
+          <p className="text-sm font-black tracking-[0.5em] opacity-40" style={{ color: isDark ? '#facc15' : '#ca8a04' }}>
             {String(current + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
           </p>
         </div>
